@@ -67,7 +67,7 @@ This isn't another feature reference. It's a **structured, visual, example-drive
 ### What you get:
 
 - **10 tutorial modules** covering every Antigravity CLI feature — from slash commands to custom agent teams
-- **Copy-paste configs** — slash commands, CLAUDE.md templates, hook scripts, MCP configs, subagent definitions, and full plugin bundles
+- **Copy-paste configs** — slash commands, MEMORY.md templates, hook scripts, MCP configs, subagent definitions, and full plugin bundles
 - **Mermaid diagrams** showing how each feature works internally, so you understand *why*, not just *how*
 - **A guided learning path** that takes you from beginner to power user in 11-13 hours
 - **Built-in self-assessment** — run `/self-assessment` or `/lesson-quiz hooks` directly in Antigravity CLI to identify gaps
@@ -116,7 +116,7 @@ Take the self-assessment or pick your level:
 | Level | You can... | Start here | Time |
 |-------|-----------|------------|------|
 | **Beginner** | Start Antigravity CLI and chat | [Slash Commands](01-slash-commands/) | ~2.5 hours |
-| **Intermediate** | Use CLAUDE.md and custom commands | [Skills](03-skills/) | ~3.5 hours |
+| **Intermediate** | Use MEMORY.md and custom commands | [Skills](03-skills/) | ~3.5 hours |
 | **Advanced** | Configure MCP servers and hooks | [Advanced Features](09-advanced-features/) | ~5 hours |
 
 **Full learning path with all 10 modules:**
@@ -155,7 +155,7 @@ cp 01-slash-commands/optimize.md /path/to/your-project/.agents/skills/
 # /optimize
 
 # 4. Ready for more? Set up project memory:
-cp 02-memory/project-CLAUDE.md /path/to/your-project/CLAUDE.md
+cp 02-memory/project-MEMORY.md /path/to/your-project/MEMORY.md
 
 # 5. Install a skill:
 cp -r 03-skills/code-review-specialist ~/.gemini/antigravity-cli/skills/
@@ -168,7 +168,7 @@ Want the full setup? Here's the **1-hour essential setup**:
 cp 01-slash-commands/*.md .agents/skills/
 
 # Project memory (15 min)
-cp 02-memory/project-CLAUDE.md ./CLAUDE.md
+cp 02-memory/project-MEMORY.md ./MEMORY.md
 
 # Install a skill (15 min)
 cp -r 03-skills/code-review-specialist ~/.gemini/antigravity-cli/skills/
@@ -277,7 +277,7 @@ MIT licensed. Free forever. Clone it, fork it, make it yours.
 cp 01-slash-commands/*.md .agents/skills/
 
 # Memory
-cp 02-memory/project-CLAUDE.md ./CLAUDE.md
+cp 02-memory/project-MEMORY.md ./MEMORY.md
 
 # Skills
 cp -r 03-skills/code-review-specialist ~/.gemini/antigravity-cli/skills/
@@ -345,20 +345,20 @@ cp 01-slash-commands/*.md /path/to/project/.agents/skills/
 **What**: Persistent context across sessions
 
 **Examples**:
-- `project-CLAUDE.md` - Team-wide project standards
-- `directory-api-CLAUDE.md` - Directory-specific rules
-- `personal-CLAUDE.md` - Personal preferences
+- `project-MEMORY.md` - Team-wide project standards
+- `directory-api-MEMORY.md` - Directory-specific rules
+- `global-GEMINI.md` - Personal preferences
 
 **Installation**:
 ```bash
 # Project memory
-cp 02-memory/project-CLAUDE.md /path/to/project/CLAUDE.md
+cp 02-memory/project-MEMORY.md /path/to/project/MEMORY.md
 
 # Directory memory
-cp 02-memory/directory-api-CLAUDE.md /path/to/project/src/api/CLAUDE.md
+cp 02-memory/directory-api-MEMORY.md /path/to/project/.agents/rules/api-rules.md
 
 # Personal memory
-cp 02-memory/personal-CLAUDE.md ~/.gemini/antigravity-cli/CLAUDE.md
+cp 02-memory/global-GEMINI.md ~/.gemini/GEMINI.md
 ```
 
 **Usage**: Automatically loaded by Antigravity
@@ -659,9 +659,9 @@ Antigravity:
 │   ├── generate-api-docs.md
 │   └── README.md
 ├── 02-memory/
-│   ├── project-CLAUDE.md
-│   ├── directory-api-CLAUDE.md
-│   ├── personal-CLAUDE.md
+│   ├── project-MEMORY.md
+│   ├── directory-api-MEMORY.md
+│   ├── global-GEMINI.md
 │   └── README.md
 ├── 03-skills/
 │   ├── code-review-specialist/
@@ -853,7 +853,7 @@ Quick start:
 - [MCP Protocol Specification](https://modelcontextprotocol.io)
 - [Skills Repository](https://github.com/luongnv89/skills) - Collection of ready-to-use skills
 - [Anthropic Cookbook](https://github.com/anthropics/anthropic-cookbook)
-- [Boris Cherny's Antigravity CLI Workflow](https://x.com/bcherny/status/2007179832300581177) - The creator of Antigravity CLI shares his systematized workflow: parallel agents, shared CLAUDE.md, Plan mode, slash commands, subagents, and verification hooks for autonomous long-running sessions.
+- [Boris Cherny's Antigravity CLI Workflow](https://x.com/bcherny/status/2007179832300581177) - The creator of Antigravity CLI shares his systematized workflow: parallel agents, shared MEMORY.md, Plan mode, slash commands, subagents, and verification hooks for autonomous long-running sessions.
 
 </details>
 

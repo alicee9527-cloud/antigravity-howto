@@ -49,7 +49,7 @@ Built-in commands are shortcuts for common actions. There are **60+ built-in com
 | `/help` | Show help |
 | `/hooks` | View hook configurations |
 | `/ide` | Manage IDE integrations |
-| `/init` | Initialize `CLAUDE.md`. Set `CLAUDE_CODE_NEW_INIT=1` for interactive flow |
+| `/init` | Initialize `MEMORY.md`. Set `CLAUDE_CODE_NEW_INIT=1` for interactive flow |
 | `/insights` | Generate session analysis report |
 | `/install-github-app` | Set up GitHub Actions app |
 | `/install-slack-app` | Install Slack app |
@@ -58,7 +58,7 @@ Built-in commands are shortcuts for common actions. There are **60+ built-in com
 | `/login` | Switch Anthropic accounts |
 | `/logout` | Sign out from your Anthropic account |
 | `/mcp` | Manage MCP servers and OAuth |
-| `/memory` | Edit `CLAUDE.md`, toggle auto-memory |
+| `/memory` | Edit `MEMORY.md`, toggle auto-memory |
 | `/mobile` | QR code for mobile app (aliases: `/ios`, `/android`) |
 | `/model [model]` | Select model with left/right arrows for effort. Since v2.1.153, the choice is **saved as the default** for new sessions (matching the IDE); press `s` after selecting to apply it to the current session only. (The keybinding `modelPicker:setAsDefault` was renamed to `modelPicker:thisSessionOnly`; the old `d` action is now `s`.) |
 | `/passes` | Share free week of Antigravity CLI |
@@ -178,7 +178,7 @@ Antigravity: [does the work, panel updates]
 
 > **New in v2.1.101**
 
-Use `/team-onboarding` to generate a teammate ramp-up guide from your project's local Antigravity CLI usage. The command inspects your `CLAUDE.md`, installed skills, subagents, hooks, and recent workflows, then produces an onboarding document that helps new developers become productive quickly.
+Use `/team-onboarding` to generate a teammate ramp-up guide from your project's local Antigravity CLI usage. The command inspects your `MEMORY.md`, installed skills, subagents, hooks, and recent workflows, then produces an onboarding document that helps new developers become productive quickly.
 
 It's a built-in command — nothing to install.
 
@@ -190,7 +190,7 @@ agy /team-onboarding
 
 The generated guide summarizes:
 
-- Project purpose and key conventions from [`CLAUDE.md`](../02-memory/README.md)
+- Project purpose and key conventions from [`MEMORY.md`](../02-memory/README.md)
 - Available [skills](../03-skills/README.md) and when they are auto-invoked
 - Configured [subagents](../04-subagents/README.md) and their responsibilities
 - [Hooks](../06-hooks/README.md) that run on common events
@@ -619,7 +619,7 @@ If both exist with the same name, the **skill takes precedence**. Remove one or 
 ## Related Guides
 
 - **[Skills](../03-skills/)** - Full reference for skills (auto-invoked capabilities)
-- **[Memory](../02-memory/)** - Persistent context with CLAUDE.md
+- **[Memory](../02-memory/)** - Persistent context with MEMORY.md
 - **[Subagents](../04-subagents/)** - Delegated AI agents
 - **[Plugins](../07-plugins/)** - Bundled command collections
 - **[Hooks](../06-hooks/)** - Event-driven automation
