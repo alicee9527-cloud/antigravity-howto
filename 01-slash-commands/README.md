@@ -49,7 +49,6 @@ Built-in commands are shortcuts for common actions. There are **60+ built-in com
 | `/help` | Show help |
 | `/hooks` | View hook configurations |
 | `/ide` | Manage IDE integrations |
-| `/init` | Initialize `MEMORY.md`. Set `CLAUDE_CODE_NEW_INIT=1` for interactive flow |
 | `/insights` | Generate session analysis report |
 | `/install-github-app` | Set up GitHub Actions app |
 | `/install-slack-app` | Install Slack app |
