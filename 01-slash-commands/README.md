@@ -18,88 +18,35 @@ Slash commands are shortcuts that control Antigravity's behavior during an inter
 
 ## Built-in Commands Reference
 
-Built-in commands are shortcuts for common actions. There are **60+ built-in commands** and **5 bundled skills** available. Type `/` in Antigravity CLI to see the full list, or type `/` followed by any letters to filter.
+Built-in commands are shortcuts for common actions. There are **25 built-in commands** and **5 bundled skills** available. Type `/` in Antigravity CLI to see the full list, or type `/` followed by any letters to filter.
 
-| Command | Purpose |
-|---------|---------|
-| `/add-dir <path>` | Add working directory |
-| `/agents` | Manage agent configurations |
-| `/branch [name]` | Branch conversation into a new session (alias: `/fork`). Note: `/fork` renamed to `/branch` in v2.1.77 |
-| `/btw <question>` | Ask an ephemeral side question while Antigravity is working on the main task; doesn't pollute the main conversation context |
-| `/cd <path>` | Move the session to a new working directory without breaking the prompt cache (added v2.1.169) |
-| `/chrome` | Configure Chrome browser integration |
-| `/clear` | Clear conversation (aliases: `/reset`, `/new`) |
-| `/color [color\|default]` | Set prompt bar color. Bare `/color` (no args) picks a random session color (v2.1.128+); pass a color name or hex to set explicitly. |
-| `/compact [instructions]` | Compact conversation with optional focus instructions |
-| `/config` | Open Settings (alias: `/settings`) |
-| `/context` | Visualize context usage as colored grid |
-| `/copy [N]` | Copy assistant response to clipboard; `w` writes to file |
-| `/cost` | Typing-shortcut alias for `/usage` — opens the cost tab (v2.1.118+) |
-| `/desktop` | Continue in Desktop app (alias: `/app`) |
-| `/diff` | Interactive diff viewer for uncommitted changes |
-| `/doctor` | Diagnose installation health — openable while Antigravity is responding; shows status icons; press `f` to auto-fix issues (enhanced in v2.1.116; layout refreshed to a flat tree with clearer icons in v2.1.178) |
-| `/effort [low\|medium\|high\|xhigh\|max\|auto]` | Set effort level via interactive arrow-key slider. Levels: `low` → `medium` → `high` → `xhigh` (new in v2.1.111) → `max`. Default is `high` on Opus 4.8 (`xhigh` on Opus 4.7); `xhigh` needs Opus 4.8 or 4.7; `max` works on Opus 4.8/4.7/4.6 and Sonnet 4.6. The menu also offers `ultracode` (not a model effort level — it sends `xhigh` and has Antigravity orchestrate dynamic workflows; session-only) |
-| `/exit` | Exit the REPL (alias: `/quit`) |
-| `/export [filename]` | Export the current conversation to a file or clipboard |
-| `/usage-credits` | Configure extra usage for rate limits (renamed from `/extra-usage` in v2.1.144; `/extra-usage` still works as an alias) |
-| `/fast [on\|off]` | Toggle fast mode |
-| `/feedback` | Submit feedback (alias: `/bug`). Since v2.1.141, can attach recent sessions (last 24h or 7d) so reports spanning more than one session include context. As of v2.1.178, `/bug` requires a description before it can be submitted. |
-| `/focus` | Toggle focus view (added v2.1.110; replaces `Ctrl+O` for focus toggle) |
-| `/goal <statement>` | Register a session-level completion condition; Antigravity keeps working until the goal is met. `/goal clear` removes it. Active goal appears in the status line, with a live overlay panel showing elapsed time, turn count, and token usage (added v2.1.139). |
-| `/help` | Show help |
-| `/hooks` | View hook configurations |
-| `/ide` | Manage IDE integrations |
-| `/insights` | Generate session analysis report |
-| `/install-github-app` | Set up GitHub Actions app |
-| `/install-slack-app` | Install Slack app |
-| `/keybindings` | Open keybindings configuration |
-| `/less-permission-prompts` | Analyze recent Bash/MCP tool calls and add a prioritized allowlist to `.agents/settings.json` to reduce permission prompts (added v2.1.111) |
-| `/login` | Switch Anthropic accounts |
-| `/logout` | Sign out from your Anthropic account |
-| `/mcp` | Manage MCP servers and OAuth |
-| `/memory` | Edit `MEMORY.md`, toggle auto-memory |
-| `/mobile` | QR code for mobile app (aliases: `/ios`, `/android`) |
-| `/model [model]` | Select model with left/right arrows for effort. Since v2.1.153, the choice is **saved as the default** for new sessions (matching the IDE); press `s` after selecting to apply it to the current session only. (The keybinding `modelPicker:setAsDefault` was renamed to `modelPicker:thisSessionOnly`; the old `d` action is now `s`.) |
-| `/passes` | Share free week of Antigravity CLI |
-| `/permissions` | View/update permissions (alias: `/allowed-tools`) |
-| `/plan [description]` | Enter plan mode |
-| `/plugin` | Manage plugins |
-| `/proactive` | Alias for `/loop` (added v2.1.105) |
-| `/powerup` | Discover features through interactive lessons with animated demos |
-| `/privacy-settings` | Privacy settings (Pro/Max only) |
-| `/release-notes` | View changelog |
-| `/recap` | Show session recap / summary when returning to a session (added v2.1.108) |
-| `/reload-plugins` | Reload active plugins |
-| `/reload-skills` | Re-scan skill directories without restarting the session (added v2.1.152) |
-| `/remote-control` | Remote control from agy.ai (alias: `/rc`) |
-| `/remote-env` | Configure default remote environment |
-| `/rename [name]` | Rename session |
-| `/resume [session]` | Resume conversation (alias: `/continue`) |
-| `/review <pr>` | Review a GitHub PR. As of v2.1.186 it runs on the same review engine as `/code-review medium`. Use `/code-review` to review the local working diff |
-| `/rewind` | Rewind conversation and/or code (alias: `/checkpoint`) |
-| `/sandbox` | Toggle sandbox mode |
-| `/schedule [description]` | Create/manage Cloud scheduled tasks |
-| `/scroll-speed <+N\|-N>` | Tune mouse-wheel scroll speed of the TUI live-preview pane with a live preview. Persists per-machine to `~/.gemini/antigravity-cli/preferences.json` (added v2.1.139). |
-| `/security-review` | Analyze branch for security vulnerabilities |
-| `/skills` | List available skills |
-| `/stats` | Typing-shortcut alias for `/usage` — opens the stats tab (daily usage, sessions, streaks) (v2.1.118+) |
-| `/stickers` | Order Antigravity CLI stickers |
-| `/status` | Show version, model, account |
-| `/statusline` | Configure status line |
-| `/tasks` | List/manage background tasks |
-| `/team-onboarding` | Generate a teammate ramp-up guide from the project's Antigravity CLI setup (new in v2.1.101) |
-| `/terminal-setup` | Configure terminal keybindings |
-| `/theme` | Open theme picker / manage custom themes (v2.1.118). Define custom themes via JSON in `~/.gemini/antigravity-cli/themes/<name>.json` |
-| `/tui` | Toggle fullscreen TUI (text user interface) mode with flicker-free rendering (added v2.1.110) |
-| `/ultraplan <prompt>` | Draft plan in ultraplan session, review in browser |
-| `/ultrareview` | Comprehensive cloud-based code review with multi-agent analysis (added v2.1.111) |
-| `/undo` | Alias for `/rewind` (added v2.1.108) |
-| `/upgrade` | Open upgrade page for higher plan tier |
-| `/usage` | Canonical usage dashboard (v2.1.118) — combines plan usage limits, rate limits, cost, and daily session stats. `/cost` and `/stats` are typing-shortcut aliases that open specific tabs |
-| `/voice` | Toggle push-to-talk voice dictation |
-| `/workflows` | View running and completed dynamic workflow runs (added v2.1.154). See [Dynamic Workflows](../09-advanced-features/README.md#dynamic-workflows) |
-
-> **Why `/cd` matters:** changing directories used to lose cache warmth (making the next turn slower and costlier); `/cd` preserves the prompt cache across the switch.
+| Command | Alias | Category | Purpose |
+|:---|:---|:---|:---|
+| `/add-dir <path>` | — | Utilities | Add a directory path to the active workspace. |
+| `/agents` | — | Tools & Tasks | Open the Agent Manager Panel to switch agents/subagents. |
+| `/artifact` | — | Tools & Tasks | Open the Artifact Review Panel. |
+| `/btw <query>` | — | Utilities | Ask a side question in the background without polluting context. |
+| `/clear` | `/new` | Utilities | Clear terminal and reset conversation context. |
+| `/config` | `/settings` | Configurations | Open the interactive Settings Editor Overlay. |
+| `/context` | — | Utilities | Open the context usage visualization panel. |
+| `/copy` | — | Utilities | Copy the last agent response to the clipboard. |
+| `/credits` | — | Account | View remaining G1 credits and purchase links. |
+| `/diff` | — | Utilities | Open the Interactive Diff Viewer for changes. |
+| `/exit` | `/quit` | Core | Close the TUI session and return to shell. |
+| `/fast` | — | Configurations | Enable fast mode (bypass reasoning plans). |
+| `/feedback` | — | Utilities | Open the feedback submission panel. |
+| `/fork` | `/branch` | Conversations | Clone the current thread into a new parallel session. |
+| `/help` | — | Utilities | Open the help panel. |
+| `/hooks` | — | Tools & Tasks | Browse active script hooks. |
+| `/keybindings` | — | Configurations | Open the Keyboard Shortcut Editor. |
+| `/logout` | — | Account | Disconnect profile and purge tokens. |
+| `/usage` | `/quota` | Quota | Monitor resource consumption and model quotas. |
+| `/resume` | `/switch` | Conversations | List and switch/resume previous conversation logs. |
+| `/rewind` | `/undo` | Conversations | Roll back the conversation history and code state. |
+| `/skills` | — | Tools & Tasks | List available skills. |
+| `/goal <statement>`| — | Task Execution | Run the agent in high-autonomy background mode until task completion. |
+| `/schedule` | — | Task Execution | Create a one-time timer or a recurring cron schedule. |
+| `/grill-me` | — | Task Execution | Prompt the agent to ask clarifying questions before starting. |
 
 ### Bundled Skills
 
@@ -302,7 +249,7 @@ Review PR #$0 with priority $1
 
 Usage: `/review-pr 456 high` → `$0`="456", `$1`="high"
 
-`${CLAUDE_PROJECT_DIR}` resolves to the absolute path of the project root (v2.1.196).
+`${AGY_PROJECT_DIR}` resolves to the absolute path of the project root (v2.1.196).
 
 ### Dynamic Context with Shell Commands
 
@@ -640,13 +587,8 @@ If both exist with the same name, the **skill takes precedence**. Remove one or 
 - https://code.agy.com/docs/en/changelog
 - https://code.agy.com/docs/en/commands
 - https://code.agy.com/docs/en/model-config
-- https://github.com/anthropics/agy-code/blob/main/CHANGELOG.md
-- https://docs.anthropic.com/en/docs/agy-code/slash-commands
-- https://github.com/anthropics/agy-code/releases/tag/v2.1.139
-- https://github.com/anthropics/agy-code/releases/tag/v2.1.144
-- https://github.com/anthropics/agy-code/releases/tag/v2.1.152
-- https://github.com/anthropics/agy-code/releases/tag/v2.1.153
-- https://github.com/anthropics/agy-code/releases/tag/v2.1.154
+- https://antigravity.google/changelog
+- https://antigravity.google/docs/cli/reference
 **Compatible Models**: Antigravity Sonnet 5, Antigravity Sonnet 4.6, Antigravity Opus 4.8, Antigravity Haiku 4.5
 
 *Part of the [Antigravity How To](../) guide series*
